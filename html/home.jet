@@ -12,6 +12,14 @@
       integrity="sha384-EVSTQN3/azprG1Anm3QDgpJLIm9Nao0Yz1ztcQTwFspd3yD65VohhpuuCOmLASjC"
       crossorigin="anonymous"
     />
+
+    <style>
+      .chatbox {
+        outline: 1px solid silver;
+        min-height: 150px;
+        padding: 0.5rem;
+      }
+    </style>
   </head>
   <body>
     <div class="container">
@@ -24,6 +32,33 @@
       <div class="row">
         <div class="col-md-8">
           <h3>Chat</h3>
+
+          <div class="form-group">
+            <label for="username">Username</label>
+            <input
+              type="text"
+              id="username"
+              name="username"
+              class="form-control"
+              autocomplete="off"
+            />
+          </div>
+          <br />
+          <div class="form-group">
+            <label for="mesage">Message</label>
+            <input
+              type="text"
+              id="mesage"
+              name="mesage"
+              class="form-control"
+              autocomplete="off"
+            />
+          </div>
+
+          <input type="hidden" name="action" id="action" />
+
+          <hr />
+          <div id="output" class="chatbox"></div>
         </div>
         <div class="col-md-4">
           <h3>Who is online</h3>
@@ -44,6 +79,12 @@
       socket = new WebSocket("ws://127.0.0.1:8080/ws");
 
       socket.onopen = () => {};
+
+      socket.onclose = () => {};
+
+      socket.onerror = (error) => {};
+
+      socket.onmessage = (msg) => {};
     });
   </script>
 </html>
